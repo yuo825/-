@@ -4,41 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أكاديمية نبراس الأمة | الأستاذة هدى محمد</title>
+    <!-- Google Fonts: Elegant Arabic + Classic Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Core palette – extracted from logo vibe */
+            --green-dark: #1a2e12;
+            --green-main: #355127;
+            --green-soft: #4a7240;
+            --green-light: #eaf2e6;
+            --green-pale: #f4f8f2;
+            --gold-dark: #8b4e0f;
             --gold: #c0801c;
-            --gold-light: #d4a745;
-            --gold-dark: #8b5a15;
-            --gold-pale: #f5e6cc;
-            --gold-glow: rgba(192, 128, 28, 0.35);
-            --green-dark: #355127;
-            --green-deeper: #1e3016;
-            --green-mid: #4a6e3a;
-            --green-light: #e8efe4;
+            --gold-bright: #d9982b;
+            --gold-light: #e0b04a;
+            --gold-lighter: #f0d078;
+            --gold-pale: #faf3e0;
+            --gold-glow: rgba(192, 128, 28, 0.45);
             --cream: #fdfaf4;
-            --cream-warm: #f9f3e7;
-            --ivory: #fffff8;
-            --champagne: #f7eedb;
-            --dark: #1a1a14;
-            --text-dark: #2a2218;
-            --text-medium: #4a3f2f;
-            --text-light: #6b5f4f;
+            --cream-warm: #f9f3e5;
+            --ivory: #fffff9;
             --white: #ffffff;
-            --border-gold-subtle: rgba(192, 128, 28, 0.25);
-            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
-            --shadow-gold: 0 10px 40px rgba(192, 128, 28, 0.2);
+            --text-dark: #231f14;
+            --text-medium: #4a3f2e;
+            --text-light: #6b5f4a;
+            --border-gold: rgba(192, 128, 28, 0.28);
+            --border-gold-light: rgba(192, 128, 28, 0.15);
+            --glass-bg: rgba(255, 255, 250, 0.78);
+            --shadow-sm: 0 3px 16px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --shadow-gold: 0 10px 40px rgba(192, 128, 28, 0.25);
             --shadow-green: 0 10px 40px rgba(53, 81, 39, 0.25);
             --radius-sm: 8px;
             --radius-md: 16px;
             --radius-lg: 24px;
             --radius-xl: 32px;
-            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-            --transition-elegant: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         * {
@@ -46,226 +51,165 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--cream-warm);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream-warm);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+            border-radius: 8px;
         }
 
         body {
-            font-family: 'Tajawal', 'Noto Naskh Arabic', 'Scheherazade New', serif;
+            font-family: 'Tajawal', 'Noto Naskh Arabic', 'Scheherazade New', sans-serif;
             background: var(--ivory);
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             direction: rtl;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ============ ANIMATED BACKGROUND PARTICLES ============ */
-        .particles-container {
+        /* ---------- Loading Screen ---------- */
+        .page-loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            inset: 0;
+            z-index: 99999;
+            background: var(--ivory);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
         }
-        .particle {
-            position: absolute;
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-ring {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-gold-light);
+            border-top-color: var(--gold);
             border-radius: 50%;
-            pointer-events: none;
-            animation: floatParticle linear infinite;
-            opacity: 0.35;
+            animation: spinLoader 0.9s linear infinite;
         }
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(0) translateX(0) scale(1);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.4;
-            }
-            100% {
-                transform: translateY(-110vh) translateX(80px) scale(0.3);
-                opacity: 0;
+        @keyframes spinLoader {
+            to {
+                transform: rotate(360deg);
             }
         }
 
-        /* ============ SCROLLBAR ============ */
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--cream-warm);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
-            border-radius: 10px;
-            transition: background 0.3s;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--gold-light), var(--gold));
-        }
-
-        /* ============ TOP ORNAMENTAL LINE ============ */
-        .top-ornament {
+        /* ---------- Top Ornament Line ---------- */
+        .ornament-line {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-            z-index: 9999;
-            animation: shimmerLine 3s ease-in-out infinite;
-        }
-        @keyframes shimmerLine {
-            0%,
-            100% {
-                opacity: 0.7;
-            }
-            50% {
-                opacity: 1;
-            }
+            z-index: 10001;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
-        /* ============ NAVIGATION ============ */
-        .nav-glass {
+        /* ---------- Navigation ---------- */
+        .nav-container {
             position: fixed;
             top: 3px;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 250, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-elegant);
-            padding: 0 16px;
+            padding: 0 20px;
+            transition: all var(--transition-smooth);
         }
-        .nav-glass.scrolled {
-            box-shadow: var(--shadow-md);
-            border-bottom: 2px solid var(--gold);
-        }
-        .nav-inner {
+        .nav-glass {
             max-width: 1300px;
             margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(22px);
+            border: 1px solid var(--border-gold-light);
+            border-radius: 50px;
+            padding: 8px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
-            gap: 16px;
+            box-shadow: var(--shadow-sm);
         }
-        .nav-brand {
+        .nav-container.scrolled .nav-glass {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-gold);
+        }
+        .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
-            cursor: pointer;
         }
-        .nav-logo-icon {
+        .logo-img-small {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #fff;
+            object-fit: cover;
+            border: 2px solid var(--gold);
             box-shadow: var(--shadow-gold);
-            flex-shrink: 0;
+            background: #fff;
         }
-        .nav-brand-text {
-            font-family: 'El Messiri', 'Tajawal', sans-serif;
+        .brand-name {
+            font-family: 'El Messiri', 'Reem Kufi', sans-serif;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--green-dark);
-            line-height: 1.3;
-            white-space: nowrap;
+            letter-spacing: -0.2px;
         }
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 6px;
+            gap: 4px;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            align-items: center;
         }
         .nav-links a {
             text-decoration: none;
             color: var(--text-medium);
             font-weight: 500;
             font-size: 0.9rem;
-            padding: 8px 14px;
-            border-radius: 25px;
+            padding: 10px 18px;
+            border-radius: 28px;
             transition: all var(--transition-smooth);
             white-space: nowrap;
-            position: relative;
         }
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--gold-dark);
             background: var(--gold-pale);
         }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 20px;
-            height: 2px;
-            background: var(--gold);
-            border-radius: 2px;
-            transition: transform var(--transition-smooth);
-        }
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            transform: translateX(-50%) scaleX(1);
-        }
         .nav-cta-btn {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
             color: #fff !important;
-            padding: 9px 20px !important;
-            border-radius: 25px !important;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
             box-shadow: var(--shadow-gold);
-            transition: all var(--transition-smooth) !important;
-            letter-spacing: 0.3px;
         }
         .nav-cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 36px rgba(192, 128, 28, 0.35);
-            background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
-            color: #fff !important;
-        }
-        .nav-cta-btn::after {
-            display: none !important;
+            box-shadow: 0 14px 40px rgba(192, 128, 28, 0.4);
         }
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
-            cursor: pointer;
             font-size: 1.6rem;
             color: var(--gold-dark);
-            padding: 6px;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .mobile-menu-toggle:hover {
-            background: var(--gold-pale);
+            cursor: pointer;
         }
 
-        /* ============ HERO SECTION ============ */
+        /* ---------- Hero Section ---------- */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -274,139 +218,118 @@
             justify-content: center;
             text-align: center;
             padding: 120px 24px 80px;
-            background: linear-gradient(175deg, #fefefe 0%, #fdf8ef 30%, #f9f0dc 60%, #fefdf9 100%);
+            background: linear-gradient(165deg, #fefefc 0%, #f8f0df 40%, #fefdfa 100%);
             overflow: hidden;
             isolation: isolate;
         }
-        .hero-bg-pattern {
+        .hero-bg-cover {
             position: absolute;
             inset: 0;
             z-index: 0;
-            opacity: 0.045;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 L120 60 L170 70 L130 105 L145 155 L100 130 L55 155 L70 105 L30 70 L80 60 Z' fill='%23c0801c'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%23355127' stroke-width='1.5'/%3E%3C/svg%3E");
-            background-size: 160px 160px;
+            background: url('cover-placeholder.jpg') center/cover no-repeat;
+            opacity: 0.08;
+            filter: blur(2px);
         }
-        .hero-glow-top {
+        /* Remove emoji, use geometric overlay */
+        .hero-pattern {
             position: absolute;
-            top: -120px;
-            right: -80px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-            z-index: 0;
-            border-radius: 50%;
-            animation: glowPulse 6s ease-in-out infinite;
+            inset: 0;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L120 70 L170 80 L130 115 L145 165 L100 140 L55 165 L70 115 L30 80 L80 70 Z' fill='%23c0801c' fill-opacity='0.06'/%3E%3Ccircle cx='100' cy='100' r='35' fill='none' stroke='%23355127' stroke-width='1.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            animation: slowDrift 30s linear infinite;
+            pointer-events: none;
         }
-        .hero-glow-bottom {
-            position: absolute;
-            bottom: -80px;
-            left: -100px;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(53, 81, 39, 0.18) 0%, transparent 70%);
-            z-index: 0;
-            border-radius: 50%;
-            animation: glowPulse 7s ease-in-out infinite reverse;
-        }
-        @keyframes glowPulse {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.7;
+        @keyframes slowDrift {
+            from {
+                transform: translate(0, 0);
             }
-            50% {
-                transform: scale(1.25);
-                opacity: 1;
+            to {
+                transform: translate(-30px, -20px);
             }
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 850px;
+            max-width: 800px;
         }
         .hero-badge {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(192, 128, 28, 0.1), rgba(192, 128, 28, 0.2));
-            border: 1.5px solid var(--border-gold-subtle);
-            padding: 8px 22px;
+            background: rgba(192, 128, 28, 0.1);
+            border: 1px solid var(--border-gold);
+            padding: 8px 24px;
             border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--gold-dark);
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out;
-            backdrop-filter: blur(4px);
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
         }
-        .hero-title-ar {
-            font-family: 'El Messiri', 'Amiri', 'Scheherazade New', serif;
-            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+        .hero-title {
+            font-family: 'El Messiri', 'Amiri', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 700;
             color: var(--green-dark);
-            line-height: 1.35;
-            margin-bottom: 8px;
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-            text-shadow: 0 2px 8px rgba(53, 81, 39, 0.08);
+            line-height: 1.3;
+            margin-bottom: 10px;
         }
-        .hero-title-ar .gold-highlight {
-            color: var(--gold);
-            position: relative;
+        .hero-title .golden-name {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-bright), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 3px 8px rgba(192, 128, 28, 0.3));
         }
         .hero-subtitle {
             font-family: 'Cormorant Garamond', 'Amiri', serif;
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-size: 1.3rem;
             font-weight: 500;
             color: var(--text-medium);
-            margin-bottom: 6px;
+            margin-bottom: 18px;
             font-style: italic;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-            letter-spacing: 0.3px;
         }
         .hero-desc {
             font-size: 1.05rem;
             color: var(--text-light);
-            margin-bottom: 28px;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-            line-height: 1.9;
+            margin-bottom: 32px;
+            line-height: 2;
         }
-        .hero-buttons {
+        .hero-actions {
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
             justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 13px 30px;
-            border-radius: 30px;
-            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 34px;
+            font-weight: 700;
             font-size: 1rem;
             text-decoration: none;
-            cursor: pointer;
             border: none;
-            transition: all var(--transition-smooth);
-            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
             font-family: 'Tajawal', sans-serif;
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
             color: #fff;
             box-shadow: var(--shadow-gold);
-            border: 1px solid transparent;
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 18px 45px rgba(192, 128, 28, 0.4);
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            box-shadow: 0 20px 45px rgba(192, 128, 28, 0.45);
         }
         .btn-outline {
             background: transparent;
             color: var(--green-dark);
             border: 2px solid var(--green-dark);
-            box-shadow: none;
         }
         .btn-outline:hover {
             background: var(--green-dark);
@@ -414,63 +337,38 @@
             transform: translateY(-3px);
             box-shadow: var(--shadow-green);
         }
-        .hero-scroll-indicator {
-            position: absolute;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounceDown 2s ease-in-out infinite;
-            cursor: pointer;
-        }
-        .hero-scroll-indicator span {
-            display: block;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        .hero-scroll-indicator:hover span {
-            background: var(--gold);
+        .btn-whatsapp {
+            background: #25D366;
             color: #fff;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
         }
-        @keyframes bounceDown {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(12px);
-            }
+        .btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: rippleEffect 0.7s ease-out;
+            pointer-events: none;
+        }
+        @keyframes rippleEffect {
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: scale(4);
+                opacity: 0;
             }
         }
 
-        /* ============ SECTION STYLES ============ */
+        /* ---------- Section Styling ---------- */
         .section {
-            position: relative;
             padding: 80px 24px;
-            z-index: 1;
+            position: relative;
         }
         .section-inner {
             max-width: 1150px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
         .section-header {
             text-align: center;
@@ -478,88 +376,70 @@
         }
         .section-tag {
             display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 800;
             color: var(--gold);
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 8px;
             background: var(--gold-pale);
-            padding: 5px 16px;
+            padding: 5px 18px;
             border-radius: 20px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-gold-light);
         }
         .section-title {
-            font-family: 'El Messiri', 'Amiri', serif;
-            font-size: clamp(2rem, 3.5vw, 2.6rem);
+            font-family: 'El Messiri', 'Reem Kufi', serif;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--green-dark);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             position: relative;
             display: inline-block;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 70px;
+            width: 60px;
             height: 3px;
             background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            margin: 10px auto 0;
-            border-radius: 3px;
+            margin: 12px auto 0;
+            border-radius: 4px;
         }
         .section-subtitle {
             color: var(--text-medium);
-            font-size: 1.05rem;
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
+        }
+        .bg-soft-green {
+            background: var(--green-pale);
+        }
+        .bg-warm {
+            background: var(--cream-warm);
         }
 
-        /* ============ ABOUT CARD ============ */
-        .about-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 44px 36px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-gold-subtle);
-            position: relative;
-            overflow: hidden;
-            transition: all var(--transition-elegant);
-        }
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle, var(--gold-pale) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.6;
-        }
-        .about-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
+        /* ---------- About with Image ---------- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            position: relative;
-            z-index: 1;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-img {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--gold);
+            object-fit: cover;
+            transition: transform var(--transition-smooth);
+        }
+        .about-img:hover {
+            transform: scale(1.02);
         }
         .about-text h3 {
             font-family: 'El Messiri', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--green-dark);
-            margin-bottom: 14px;
-        }
-        .about-text p,
-        .about-text li {
-            color: var(--text-medium);
-            font-size: 1rem;
-            line-height: 1.9;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
         .about-list {
             list-style: none;
@@ -568,555 +448,173 @@
         .about-list li {
             position: relative;
             padding-right: 26px;
+            margin-bottom: 10px;
+            color: var(--text-medium);
         }
         .about-list li::before {
-            content: '✦';
-            position: absolute;
-            right: 0;
-            top: 2px;
-            color: var(--gold);
-            font-size: 0.7rem;
-        }
-
-        /* ============ QUALIFICATIONS GRID ============ */
-        .quals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 18px;
-        }
-        .qual-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 22px 20px;
-            border: 1px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-        .qual-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-gold);
-            border-color: var(--gold);
-        }
-        .qual-card::after {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: -30px;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(192, 128, 28, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.5s;
-        }
-        .qual-card:hover::after {
-            width: 120px;
-            height: 120px;
-            top: -50px;
-            left: -50px;
-        }
-        .qual-icon {
-            flex-shrink: 0;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold-pale), #fdf0d5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--gold-dark);
-            z-index: 1;
-            border: 1.5px solid var(--border-gold-subtle);
-        }
-        .qual-content {
-            z-index: 1;
-        }
-        .qual-content h4 {
-            font-size: 0.95rem;
-            color: var(--green-dark);
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-        .qual-content p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* ============ TEACHING FIELDS ============ */
-        .fields-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        .field-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 30px 24px;
-            border: 1px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-elegant);
-            position: relative;
-            overflow: hidden;
-        }
-        .field-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-        .field-card .field-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: rgba(192, 128, 28, 0.1);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            line-height: 1;
-            z-index: 0;
-        }
-        .field-card h3 {
-            font-family: 'El Messiri', serif;
-            font-size: 1.3rem;
-            color: var(--green-dark);
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-        .field-card ul {
-            list-style: none;
-            padding: 0;
-            position: relative;
-            z-index: 1;
-        }
-        .field-card ul li {
-            padding: 6px 0;
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            border-bottom: 1px dotted rgba(192, 128, 28, 0.15);
-            position: relative;
-            padding-right: 20px;
-        }
-        .field-card ul li::before {
             content: '◆';
             position: absolute;
             right: 0;
-            top: 8px;
-            font-size: 0.5rem;
             color: var(--gold);
-        }
-        .field-card ul li:last-child {
-            border-bottom: none;
+            font-size: 0.6rem;
+            top: 5px;
         }
 
-        /* ============ FEATURES / مميزات ============ */
-        .features-grid {
+        /* ---------- Cards ---------- */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
-        .feature-card {
+        .card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 28px 20px;
-            text-align: center;
-            border: 1px solid var(--border-gold-subtle);
+            padding: 28px 22px;
+            border: 1px solid var(--border-gold-light);
             box-shadow: var(--shadow-sm);
-            transition: all var(--transition-smooth);
+            transition: all var(--transition-bounce);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
         }
-        .feature-card:hover {
+        .card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-gold);
             border-color: var(--gold);
         }
-        .feature-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--green-light), #e8efe4);
-            margin: 0 auto 14px;
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold-pale), #fdf0d5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--green-dark);
-            border: 2px solid rgba(53, 81, 39, 0.15);
-        }
-        .feature-card h4 {
-            color: var(--green-dark);
-            font-weight: 700;
-            margin-bottom: 4px;
-            font-size: 1rem;
-        }
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.88rem;
-        }
-
-        /* ============ SERVICES ============ */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-        .service-card {
-            background: linear-gradient(160deg, #fff, #fdfaf4);
-            border-radius: var(--radius-md);
-            padding: 22px 18px;
-            text-align: center;
-            border: 1.5px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-sm);
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+            color: var(--gold-dark);
+            border: 1px solid var(--border-gold);
             transition: all var(--transition-smooth);
-            cursor: default;
         }
-        .service-card:hover {
-            background: linear-gradient(160deg, #fff, var(--gold-pale));
-            border-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-gold);
-        }
-        .service-card .svc-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .service-card h4 {
-            color: var(--green-dark);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        /* ============ TARGET AUDIENCE ============ */
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 14px;
-        }
-        .audience-tag {
-            background: var(--white);
-            border-radius: 30px;
-            padding: 14px 20px;
-            text-align: center;
-            border: 1.5px solid var(--border-gold-subtle);
-            font-weight: 600;
-            color: var(--green-dark);
-            transition: all var(--transition-smooth);
-            cursor: default;
-            font-size: 0.95rem;
-        }
-        .audience-tag:hover {
-            background: var(--green-dark);
+        .card:hover .card-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: #fff;
-            border-color: var(--green-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-green);
+            border-color: var(--gold);
+        }
+        .card h4 {
+            color: var(--green-dark);
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+        .card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        /* ============ TEACHING STYLE ============ */
-        .style-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 16px;
-        }
-        .style-list li {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 18px 20px;
-            border: 1px solid var(--border-gold-subtle);
+        /* ---------- WhatsApp Floating Button ---------- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
             display: flex;
             align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            transition: all var(--transition-bounce);
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            animation: floatWiggle 2s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55);
+        }
+        @keyframes floatWiggle {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        /* ---------- Contact Links ---------- */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
-            transition: all var(--transition-smooth);
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-        .style-list li:hover {
-            border-color: var(--gold);
-            box-shadow: var(--shadow-sm);
-            transform: translateX(4px);
-        }
-        .style-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--gold);
-            flex-shrink: 0;
-            box-shadow: 0 0 10px var(--gold-glow);
-        }
-
-        /* ============ COURSES ============ */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 18px;
-        }
-        .course-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 26px 20px;
-            border: 1px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-            transition: all var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-gold);
-            border-color: var(--gold);
-        }
-        .course-card .course-badge {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            background: var(--gold);
-            color: #fff;
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .course-card h4 {
-            color: var(--green-dark);
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-top: 10px;
-        }
-        .course-card p {
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-top: 6px;
-        }
-
-        /* ============ CERTIFICATIONS ============ */
-        .cert-highlight {
-            background: linear-gradient(135deg, var(--green-dark), var(--green-deeper));
-            color: #fff;
-            border-radius: var(--radius-xl);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow-green);
-            position: relative;
-            overflow: hidden;
-        }
-        .cert-highlight::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(192, 128, 28, 0.25) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .cert-highlight h3 {
-            font-family: 'El Messiri', serif;
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-        }
-        .cert-highlight p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-        .cert-highlight .cert-icon-big {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ============ VALUES ============ */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-        }
-        .value-card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 24px 16px;
-            text-align: center;
-            border: 1px solid var(--border-gold-subtle);
-            transition: all var(--transition-smooth);
-        }
-        .value-card:hover {
-            border-color: var(--gold);
-            box-shadow: var(--shadow-gold);
-            transform: translateY(-3px);
-        }
-        .value-card .val-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        .value-card h4 {
-            color: var(--green-dark);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        /* ============ MESSAGE / رسالة ============ */
-        .message-box {
-            background: linear-gradient(160deg, #fffefa, #fdf6e8);
-            border-radius: var(--radius-xl);
-            padding: 44px 32px;
-            text-align: center;
-            border: 2px solid var(--gold);
-            box-shadow: var(--shadow-gold);
-            position: relative;
-            overflow: hidden;
-        }
-        .message-box::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            right: 20px;
-            font-size: 10rem;
-            color: rgba(192, 128, 28, 0.07);
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1;
-            z-index: 0;
-        }
-        .message-box p {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            position: relative;
-            z-index: 1;
-            line-height: 2;
-            font-family: 'Amiri', 'Scheherazade New', serif;
-        }
-
-        /* ============ CONTACT SECTION ============ */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-        .contact-info-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 36px 28px;
-            border: 1px solid var(--border-gold-subtle);
-            box-shadow: var(--shadow-md);
-        }
-        .contact-info-card h3 {
-            font-family: 'El Messiri', serif;
-            color: var(--green-dark);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
+            max-width: 500px;
+            margin: 0 auto;
         }
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 16px;
+            gap: 14px;
+            padding: 16px 22px;
+            background: var(--white);
             border-radius: var(--radius-md);
-            background: var(--cream-warm);
-            margin-bottom: 10px;
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid var(--border-gold-light);
             transition: all var(--transition-smooth);
-            border: 1px solid transparent;
         }
         .contact-link:hover {
-            border-color: var(--gold);
             background: var(--gold-pale);
-            transform: translateX(4px);
+            border-color: var(--gold);
+            transform: translateX(6px);
             box-shadow: var(--shadow-sm);
         }
-        .contact-link .c-icon {
-            width: 40px;
-            height: 40px;
+        .contact-link-icon {
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .academy-card {
-            background: linear-gradient(160deg, #fff, #fdf8ef);
-            border-radius: var(--radius-xl);
-            padding: 36px 28px;
-            border: 2px solid var(--gold);
-            box-shadow: var(--shadow-gold);
-            text-align: center;
-        }
-        .academy-card h3 {
-            font-family: 'El Messiri', serif;
-            color: var(--gold-dark);
-            font-size: 1.5rem;
-            margin-bottom: 6px;
-        }
-        .academy-card .academy-name-ar {
-            font-family: 'El Messiri', 'Amiri', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--green-dark);
-            margin: 8px 0;
-        }
-        .academy-card .academy-name-en {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
-            color: var(--text-medium);
-            font-style: italic;
-            letter-spacing: 1px;
         }
 
-        /* ============ FOOTER ============ */
+        /* ---------- Footer ---------- */
         .footer {
-            background: var(--green-deeper);
-            color: #ddd;
-            padding: 40px 24px 20px;
+            background: var(--green-dark);
+            color: #ccc;
             text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .footer p {
-            margin: 6px 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            padding: 40px 24px 30px;
         }
         .footer .gold-text {
-            color: var(--gold-light);
-            font-weight: 600;
-        }
-        .footer-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            margin: 16px auto;
-            border-radius: 2px;
+            color: var(--gold-lighter);
+            font-weight: 700;
         }
 
-        /* ============ RESPONSIVE ============ */
+        /* ---------- Reveal on Scroll ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- Responsive ---------- */
         @media (max-width: 900px) {
             .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .fields-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .contact-grid {
                 grid-template-columns: 1fr;
             }
             .nav-links {
@@ -1125,14 +623,12 @@
                 position: absolute;
                 top: 100%;
                 right: 0;
-                background: rgba(255, 255, 250, 0.97);
+                background: rgba(255, 255, 250, 0.95);
                 backdrop-filter: blur(20px);
-                width: 260px;
+                width: 250px;
                 border-radius: var(--radius-md);
                 box-shadow: var(--shadow-lg);
                 padding: 16px;
-                gap: 4px;
-                border: 1px solid var(--border-gold-subtle);
             }
             .nav-links.show {
                 display: flex;
@@ -1140,450 +636,390 @@
             .mobile-menu-toggle {
                 display: block;
             }
-            .hero {
-                padding: 100px 16px 60px;
-            }
-            .section {
-                padding: 50px 16px;
-            }
-            .quals-grid {
-                grid-template-columns: 1fr;
-            }
-            .features-grid,
-            .services-grid,
-            .audience-grid,
-            .values-grid,
-            .courses-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            }
-        }
-        @media (max-width: 480px) {
-            .hero-title-ar {
-                font-size: 2rem;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .features-grid,
-            .services-grid,
-            .audience-grid,
-            .values-grid,
-            .courses-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .style-list {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- Loading -->
+    <div class="page-loader" id="loader">
+        <div class="loader-ring"></div>
+    </div>
 
-    <!-- Top Ornament -->
-    <div class="top-ornament"></div>
-
-    <!-- Particles -->
-    <div class="particles-container" id="particlesContainer"></div>
+    <!-- Top line -->
+    <div class="ornament-line"></div>
 
     <!-- Navigation -->
-    <nav class="nav-glass" id="navbar">
-        <div class="nav-inner">
-            <a href="#hero" class="nav-brand" aria-label="الرئيسية">
-                <div class="nav-logo-icon">✦</div>
-                <span class="nav-brand-text">نبراس الأمة</span>
+    <nav class="nav-container" id="navbar">
+        <div class="nav-glass">
+            <a href="#" class="brand">
+                <!-- استبدل src بمسار شعار الأكاديمية الحقيقي -->
+                <img src="logo-placeholder.jpg" alt="شعار أكاديمية نبراس الأمة" class="logo-img-small" onerror="this.style.display='none'">
+                <span class="brand-name">نبراس الأمة</span>
             </a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة">☰</button>
-            <ul class="nav-links" id="navLinks">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            <ul class="nav-links" id="navMenu">
                 <li><a href="#about" data-section="about">نبذة</a></li>
                 <li><a href="#qualifications" data-section="qualifications">المؤهلات</a></li>
                 <li><a href="#fields" data-section="fields">مجالات التدريس</a></li>
                 <li><a href="#services" data-section="services">الخدمات</a></li>
-                <li><a href="#courses" data-section="courses">الدورات</a></li>
-                <li><a href="#contact" class="nav-cta-btn">تواصل معنا</a></li>
+                <li><a href="#contact" class="nav-cta-btn">تواصل</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="hero">
-        <div class="hero-bg-pattern"></div>
-        <div class="hero-glow-top"></div>
-        <div class="hero-glow-bottom"></div>
+        <div class="hero-bg-cover" style="background-image: url('cover-placeholder.jpg');"></div>
+        <div class="hero-pattern"></div>
         <div class="hero-content">
             <div class="hero-badge">⚜ أكاديمية نبراس الأمة ⚜</div>
-            <h1 class="hero-title-ar">
-                الأستاذة <span class="gold-highlight">هدى محمد</span>
-            </h1>
+            <h1 class="hero-title">الأستاذة <span class="golden-name">هدى محمد</span></h1>
             <p class="hero-subtitle">متخصصة في القراءات وعلوم القرآن الكريم</p>
-            <p class="hero-desc">
-                إعداد معلمات القرآن الكريم وتأهيلهن باحترافية<br>
-                رحلة تعليمية تجمع بين الإتقان والأثر المبارك
-            </p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">📩 تواصل معنا الآن</a>
-                <a href="#about" class="btn btn-outline">🔍 تعرف عليّ أكثر</a>
+            <p class="hero-desc">إعداد معلمات القرآن الكريم وتأهيلهن باحترافية<br>رحلة تعليمية تجمع بين الإتقان والأثر المبارك</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">تواصل معنا</a>
+                <a href="https://wa.me/201122103199" target="_blank" class="btn btn-whatsapp">واتساب مباشر</a>
             </div>
-        </div>
-        <div class="hero-scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-            <span>⌄</span>
         </div>
     </section>
 
-    <!-- نبذة تعريفية -->
-    <section class="section" id="about" style="background:#fefefe;">
+    <!-- About Section with image -->
+    <section class="section bg-warm" id="about">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">نبذة تعريفية</span>
                 <h2 class="section-title">عن الأستاذة هدى محمد</h2>
             </div>
-            <div class="about-card">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h3>🎓 المسيرة العلمية</h3>
-                        <ul class="about-list">
-                            <li>خريجة كلية القراءات وعلوم القرآن.</li>
-                            <li>متخصصة في علوم القرآن الكريم والقراءات.</li>
-                            <li>حاصلة على إجازات علمية معتمدة بروايتي حفص وشعبة عن عاصم.</li>
-                            <li>صاحبة خبرة في تأسيس المعلمات وإعدادهن وفق منهجية متقنة.</li>
-                        </ul>
-                    </div>
-                    <div class="about-text">
-                        <h3>🌟 الرسالة التعليمية</h3>
-                        <p style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--text-dark);">
-                            إعداد جيل من المعلمات المتقنات، ونشر القراءة الصحيحة لكتاب الله تعالى، وفق منهج أصيل يجمع بين الإتقان، والتدرج، وحسن الأداء.
-                        </p>
-                        <p style="margin-top:12px;color:var(--gold-dark);font-weight:600;">
-                            ✦ حاصلة على شهادات دولية في تدريب المعلمات (TOT)
-                        </p>
-                    </div>
+            <div class="about-grid reveal">
+                <div>
+                    <img src="about-image.jpg" alt="الأستاذة هدى محمد" class="about-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23faf3e0\'/%3E%3Ctext x=\'200\' y=\'200\' text-anchor=\'middle\' dy=\'.3em\' font-family=\'El Messiri,serif\' font-size=\'24\' fill=\'%23355127\'%3Eصورة الأستاذة%3C/text%3E%3C/svg%3E'">
+                </div>
+                <div class="about-text">
+                    <h3>المسيرة العلمية</h3>
+                    <ul class="about-list">
+                        <li>خريجة كلية القراءات وعلوم القرآن.</li>
+                        <li>متخصصة في علوم القرآن الكريم والقراءات.</li>
+                        <li>حاصلة على إجازات علمية معتمدة بروايتي حفص وشعبة عن عاصم.</li>
+                        <li>صاحبة خبرة في تأسيس المعلمات وإعدادهن وفق منهجية متقنة.</li>
+                    </ul>
+                    <p style="margin-top:20px;font-weight:700;color:var(--gold-dark);">✦ حاصلة على شهادات دولية في تدريب المعلمات (TOT)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- المؤهلات والإجازات -->
-    <section class="section" id="qualifications" style="background:var(--cream-warm);">
+    <!-- Qualifications -->
+    <section class="section" id="qualifications">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">المؤهلات والإجازات</span>
                 <h2 class="section-title">إجازات علمية معتمدة</h2>
-                <p class="section-subtitle">سلسلة من الإجازات المتصلة بالإسناد في القرآن الكريم وعلومه</p>
             </div>
-            <div class="quals-grid">
-                <div class="qual-card"><div class="qual-icon">📜</div><div class="qual-content"><h4>إجازة في القرآن الكريم</h4><p>برواية حفص عن عاصم</p></div></div>
-                <div class="qual-card"><div class="qual-icon">📜</div><div class="qual-content"><h4>إجازة في القرآن الكريم</h4><p>برواية شعبة عن عاصم</p></div></div>
-                <div class="qual-card"><div class="qual-icon">📖</div><div class="qual-content"><h4>إجازة في نور البيان</h4><p>منهج تأسيسي متكامل</p></div></div>
-                <div class="qual-card"><div class="qual-icon">🎙</div><div class="qual-content"><h4>إجازة في التجويد</h4><p>أحكام التجويد نظريًا وعمليًا</p></div></div>
-                <div class="qual-card"><div class="qual-icon">🌟</div><div class="qual-content"><h4>إجازة في القاعدة النورانية</h4><p>تأسيس النطق العربي السليم</p></div></div>
-                <div class="qual-card"><div class="qual-icon">📚</div><div class="qual-content"><h4>إجازة في متن الجزرية</h4><p>المنظومة التجويدية الشهيرة</p></div></div>
-                <div class="qual-card"><div class="qual-icon">👶</div><div class="qual-content"><h4>إجازة في متن تحفة الأطفال</h4><p>لتعليم الصغار أحكام التجويد</p></div></div>
-                <div class="qual-card"><div class="qual-icon">📘</div><div class="qual-content"><h4>إجازة في كتاب منار الهدى</h4><p>في فن التجويد</p></div></div>
-                <div class="qual-card"><div class="qual-icon">🔖</div><div class="qual-content"><h4>إجازة في منظومة قصر المنفصل</h4><p>من متون القراءات</p></div></div>
+            <div class="cards-grid reveal">
+                <div class="card"><div class="card-icon">📜</div><h4>إجازة القرآن برواية حفص</h4><p>عن عاصم</p></div>
+                <div class="card"><div class="card-icon">📜</div><h4>إجازة القرآن برواية شعبة</h4><p>عن عاصم</p></div>
+                <div class="card"><div class="card-icon">📖</div><h4>إجازة نور البيان</h4><p>منهج تأسيسي</p></div>
+                <div class="card"><div class="card-icon">🎙</div><h4>إجازة في التجويد</h4><p>نظري وعملي</p></div>
+                <div class="card"><div class="card-icon">🌟</div><h4>القاعدة النورانية</h4><p>تأسيس النطق</p></div>
+                <div class="card"><div class="card-icon">📚</div><h4>متن الجزرية</h4><p>المنظومة التجويدية</p></div>
+                <div class="card"><div class="card-icon">👶</div><h4>تحفة الأطفال</h4><p>تعليم الصغار</p></div>
+                <div class="card"><div class="card-icon">📘</div><h4>منار الهدى</h4><p>فن التجويد</p></div>
+                <div class="card"><div class="card-icon">🔖</div><h4>قصر المنفصل</h4><p>من متون القراءات</p></div>
             </div>
         </div>
     </section>
 
-    <!-- مجالات التدريس -->
-    <section class="section" id="fields" style="background:#fefefe;">
+    <!-- Teaching Fields -->
+    <section class="section bg-soft-green" id="fields">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">مجالات التدريس</span>
                 <h2 class="section-title">ما أقدمه من علم</h2>
             </div>
-            <div class="fields-wrapper">
-                <div class="field-card">
-                    <div class="field-number">01</div>
-                    <h3>📖 تعليم القرآن الكريم</h3>
-                    <ul>
-                        <li>تصحيح التلاوة لجميع المستويات</li>
-                        <li>تحسين الأداء وإتقان الترتيل</li>
-                        <li>مراجعة الحفظ وضبط الأخطاء</li>
-                        <li>شرح أحكام التجويد بأسلوب ميسر</li>
-                        <li>برامج تمهيدية للراغبات في الإجازة</li>
+            <div class="cards-grid reveal">
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h4>تعليم القرآن الكريم</h4>
+                    <ul style="list-style:none;padding:0;margin-top:10px;">
+                        <li>• تصحيح التلاوة</li><li>• تحسين الأداء</li><li>• مراجعة الحفظ</li><li>• شرح التجويد</li><li>• برامج تمهيدية للإجازة</li>
                     </ul>
                 </div>
-                <div class="field-card">
-                    <div class="field-number">02</div>
-                    <h3>👩‍🏫 إعداد المعلمات</h3>
-                    <ul>
-                        <li>إعداد معلمات القرآن وفق منهج علمي متقن</li>
-                        <li>تأهيل معلمات نور البيان</li>
-                        <li>إعداد معلمات التأسيس للحضانات والكتاتيب</li>
-                        <li>تدريب المعلمات على مهارات الشرح والتطبيق</li>
-                        <li>بناء خطط تعليمية للطالبات والمعلمات</li>
+                <div class="card">
+                    <div class="card-icon">👩‍🏫</div>
+                    <h4>إعداد المعلمات</h4>
+                    <ul style="list-style:none;padding:0;margin-top:10px;">
+                        <li>• تأهيل علمي متقن</li><li>• نور البيان للمعلمات</li><li>• تأسيس الحضانات</li><li>• مهارات الشرح</li><li>• خطط تعليمية</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ما يميزني -->
-    <section class="section" id="features" style="background:var(--cream-warm);">
+    <!-- Features -->
+    <section class="section" id="features">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">ما يميزني</span>
                 <h2 class="section-title">لماذا تختارين التعلم معي؟</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card"><div class="feature-icon">🌸</div><h4>أسلوب هادئ وواضح</h4><p>شرح مبسط يناسب الجميع</p></div>
-                <div class="feature-card"><div class="feature-icon">📋</div><h4>متابعة مستمرة</h4><p>لتحقيق أفضل النتائج</p></div>
-                <div class="feature-card"><div class="feature-icon">🎯</div><h4>خبرة واسعة</h4><p>مع المبتدئات والمتقدمات</p></div>
-                <div class="feature-card"><div class="feature-icon">💡</div><h4>تبسيط المعلومات</h4><p>الشرعية والتجويدية</p></div>
-                <div class="feature-card"><div class="feature-icon">🤝</div><h4>الجمع بين العلمي والتربوي</h4><p>منهج متكامل</p></div>
-                <div class="feature-card"><div class="feature-icon">🕰</div><h4>برامج مرنة</h4><p>تناسب احتياجات الدارسات</p></div>
+            <div class="cards-grid reveal">
+                <div class="card"><div class="card-icon">🌸</div><h4>أسلوب هادئ</h4><p>شرح مبسط</p></div>
+                <div class="card"><div class="card-icon">📋</div><h4>متابعة مستمرة</h4><p>لتحقيق النتائج</p></div>
+                <div class="card"><div class="card-icon">🎯</div><h4>خبرة واسعة</h4><p>مبتدئات ومتقدمات</p></div>
+                <div class="card"><div class="card-icon">💡</div><h4>تبسيط المعلومات</h4><p>الشرعية والتجويدية</p></div>
+                <div class="card"><div class="card-icon">🤝</div><h4>علمي وتربوي</h4><p>منهج متكامل</p></div>
+                <div class="card"><div class="card-icon">🕰</div><h4>برامج مرنة</h4><p>تناسب الجميع</p></div>
             </div>
         </div>
     </section>
 
-    <!-- الخدمات -->
-    <section class="section" id="services" style="background:#fefefe;">
+    <!-- Services -->
+    <section class="section bg-warm" id="services">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">الخدمات</span>
                 <h2 class="section-title">الخدمات التي أقدمها</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card"><div class="svc-icon">🖥</div><h4>حلقات فردية وجماعية عن بُعد</h4></div>
-                <div class="service-card"><div class="svc-icon">🎙</div><h4>دورات التجويد والتحسين</h4></div>
-                <div class="service-card"><div class="svc-icon">📖</div><h4>برامج نور البيان والتأسيس</h4></div>
-                <div class="service-card"><div class="svc-icon">👩‍🏫</div><h4>دورات إعداد المعلمات</h4></div>
-                <div class="service-card"><div class="svc-icon">📝</div><h4>مراجعة وإتقان الحفظ</h4></div>
-                <div class="service-card"><div class="svc-icon">🎓</div><h4>برامج تأهيلية قبل الإجازة</h4></div>
-                <div class="service-card"><div class="svc-icon">💬</div><h4>استشارات تعليمية للحلقات النسائية</h4></div>
+            <div class="cards-grid reveal">
+                <div class="card"><div class="card-icon">🖥</div><h4>حلقات فردية وجماعية</h4></div>
+                <div class="card"><div class="card-icon">🎙</div><h4>دورات التجويد</h4></div>
+                <div class="card"><div class="card-icon">📖</div><h4>نور البيان والتأسيس</h4></div>
+                <div class="card"><div class="card-icon">👩‍🏫</div><h4>إعداد المعلمات</h4></div>
+                <div class="card"><div class="card-icon">📝</div><h4>مراجعة وإتقان الحفظ</h4></div>
+                <div class="card"><div class="card-icon">🎓</div><h4>تأهيل قبل الإجازة</h4></div>
+                <div class="card"><div class="card-icon">💬</div><h4>استشارات تعليمية</h4></div>
             </div>
         </div>
     </section>
 
-    <!-- الفئات المستهدفة -->
-    <section class="section" id="audience" style="background:var(--cream-warm);">
+    <!-- Audience -->
+    <section class="section" id="audience">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">الفئات المستهدفة</span>
                 <h2 class="section-title">لمن هذه البرامج؟</h2>
             </div>
-            <div class="audience-grid">
-                <div class="audience-tag">👩‍👩‍👧‍👧 النساء من جميع الأعمار</div>
-                <div class="audience-tag">🌱 المبتدئات في قراءة القرآن</div>
-                <div class="audience-tag">⭐ المتقدمات الراغبات في الإتقان</div>
-                <div class="audience-tag">💼 الراغبات في العمل بتعليم القرآن</div>
-                <div class="audience-tag">🏫 الحضانات والكتاتيب التعليمية</div>
-                <div class="audience-tag">📈 المعلمات الباحثات عن التطوير المهني</div>
+            <div class="cards-grid reveal">
+                <div class="card"><h4>النساء من جميع الأعمار</h4></div>
+                <div class="card"><h4>المبتدئات في القراءة</h4></div>
+                <div class="card"><h4>المتقدمات الراغبات في الإتقان</h4></div>
+                <div class="card"><h4>الراغبات في تعليم القرآن</h4></div>
+                <div class="card"><h4>الحضانات والكتاتيب</h4></div>
+                <div class="card"><h4>المعلمات الباحثات عن التطوير</h4></div>
             </div>
         </div>
     </section>
 
-    <!-- أسلوبي في التدريس -->
-    <section class="section" id="style" style="background:#fefefe;">
+    <!-- Teaching Style -->
+    <section class="section bg-soft-green" id="style">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">أسلوبي في التدريس</span>
                 <h2 class="section-title">كيف أُعلّم؟</h2>
             </div>
-            <ul class="style-list">
-                <li><span class="style-dot"></span> التدرج من الأساسيات إلى الإتقان</li>
-                <li><span class="style-dot"></span> التركيز على التطبيق العملي</li>
-                <li><span class="style-dot"></span> تصحيح مباشر للأداء والتلاوة</li>
-                <li><span class="style-dot"></span> بيئة تعليمية محفزة ومنظمة</li>
-                <li><span class="style-dot"></span> متابعة فردية لكل دارسة</li>
-            </ul>
+            <div class="cards-grid reveal">
+                <div class="card"><div class="card-icon">◆</div><h4>التدرج من الأساسيات</h4></div>
+                <div class="card"><div class="card-icon">◆</div><h4>التركيز على التطبيق</h4></div>
+                <div class="card"><div class="card-icon">◆</div><h4>تصحيح مباشر للتلاوة</h4></div>
+                <div class="card"><div class="card-icon">◆</div><h4>بيئة محفزة ومنظمة</h4></div>
+                <div class="card"><div class="card-icon">◆</div><h4>متابعة فردية</h4></div>
+            </div>
         </div>
     </section>
 
-    <!-- الدورات التدريبية -->
-    <section class="section" id="courses" style="background:var(--cream-warm);">
+    <!-- Courses -->
+    <section class="section" id="courses">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">الدورات التدريبية</span>
                 <h2 class="section-title">برامج تدريبية متخصصة</h2>
             </div>
-            <div class="courses-grid">
-                <div class="course-card"><span class="course-badge">الأكثر طلبًا</span><h4>📚 دورة إعداد معلمات القرآن الكريم</h4><p>منهج علمي متكامل</p></div>
-                <div class="course-card"><h4>🌟 دورة نور البيان للمعلمات</h4><p>تأسيس احترافي</p></div>
-                <div class="course-card"><h4>🔤 دورة القاعدة النورانية</h4><p>نطق عربي سليم</p></div>
-                <div class="course-card"><h4>🎙 دورة التجويد العملي</h4><p>تطبيق مباشر للأحكام</p></div>
-                <div class="course-card"><h4>✨ دورة تحسين التلاوة</h4><p>إتقان الترتيل</p></div>
-                <div class="course-card"><h4>🎓 دورة التأهيل لما قبل الإجازة</h4><p>برنامج تمهيدي متقن</p></div>
+            <div class="cards-grid reveal">
+                <div class="card"><h4>إعداد معلمات القرآن</h4><p>منهج علمي متكامل</p></div>
+                <div class="card"><h4>نور البيان للمعلمات</h4><p>تأسيس احترافي</p></div>
+                <div class="card"><h4>القاعدة النورانية</h4><p>نطق سليم</p></div>
+                <div class="card"><h4>التجويد العملي</h4><p>تطبيق مباشر</p></div>
+                <div class="card"><h4>تحسين التلاوة</h4><p>إتقان الترتيل</p></div>
+                <div class="card"><h4>التأهيل للإجازة</h4><p>برنامج تمهيدي</p></div>
             </div>
         </div>
     </section>
 
-    <!-- الشهادات المهنية -->
-    <section class="section" id="certifications" style="background:#fefefe;">
-        <div class="section-inner">
-            <div class="cert-highlight">
-                <div class="cert-icon-big">🏅</div>
-                <h3>شهادات مهنية دولية</h3>
-                <p>حاصلة على شهادات دولية في تدريب المعلمات (TOT)</p>
-                <p style="font-size:0.9rem;opacity:0.75;">Training of Trainers – معتمدة دوليًا</p>
+    <!-- Certifications -->
+    <section class="section bg-warm" id="certifications">
+        <div class="section-inner reveal">
+            <div style="background: linear-gradient(135deg, var(--green-dark), #1a2e12); color: #fff; border-radius: var(--radius-xl); padding: 50px 30px; text-align: center; box-shadow: var(--shadow-green);">
+                <div style="font-size: 3rem; margin-bottom: 14px;">🏅</div>
+                <h3 style="font-family:'El Messiri',serif; font-size:1.8rem;">شهادات مهنية دولية</h3>
+                <p style="font-size:1.2rem; opacity:0.9;">حاصلة على شهادات دولية في تدريب المعلمات (TOT)</p>
             </div>
         </div>
     </section>
 
-    <!-- قيم أؤمن بها -->
-    <section class="section" id="values" style="background:var(--cream-warm);">
+    <!-- Values -->
+    <section class="section" id="values">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">قيم أؤمن بها</span>
                 <h2 class="section-title">مبادئي في التعليم</h2>
             </div>
-            <div class="values-grid">
-                <div class="value-card"><div class="val-icon">💎</div><h4>الإخلاص في خدمة كتاب الله</h4></div>
-                <div class="value-card"><div class="val-icon">⚡</div><h4>الإتقان أساس النجاح</h4></div>
-                <div class="value-card"><div class="val-icon">🌿</div><h4>الصبر في التعليم والتربية</h4></div>
-                <div class="value-card"><div class="val-icon">🔄</div><h4>التطوير المستمر للمعلمة</h4></div>
-                <div class="value-card"><div class="val-icon">🌍</div><h4>نشر الخير بالعلم النافع</h4></div>
+            <div class="cards-grid reveal">
+                <div class="card"><h4>الإخلاص في خدمة كتاب الله</h4></div>
+                <div class="card"><h4>الإتقان أساس النجاح</h4></div>
+                <div class="card"><h4>الصبر في التعليم</h4></div>
+                <div class="card"><h4>التطوير المستمر</h4></div>
+                <div class="card"><h4>نشر الخير بالعلم النافع</h4></div>
             </div>
         </div>
     </section>
 
-    <!-- رسالتي -->
-    <section class="section" id="message" style="background:#fefefe;">
-        <div class="section-inner">
-            <div class="message-box">
-                <p>
-                    إعداد جيل من المعلمات المتقنات، ونشر القراءة الصحيحة لكتاب الله تعالى،<br>
-                    وفق منهج أصيل يجمع بين <strong>الإتقان</strong>، و<strong>التدرج</strong>، و<strong>حسن الأداء</strong>.
-                </p>
-            </div>
+    <!-- Message -->
+    <section class="section bg-soft-green">
+        <div class="section-inner reveal" style="text-align:center; padding: 40px 20px; background: linear-gradient(165deg, #fffefa, #fdf6e6); border-radius: var(--radius-xl); border:2px solid var(--gold);">
+            <p style="font-family:'Amiri', serif; font-size:1.3rem; line-height:2.2;">
+                إعداد جيل من المعلمات المتقنات، ونشر القراءة الصحيحة لكتاب الله تعالى، وفق منهج أصيل يجمع بين <strong>الإتقان</strong>، و<strong>التدرج</strong>، و<strong>حسن الأداء</strong>.
+            </p>
         </div>
     </section>
 
-    <!-- التواصل -->
-    <section class="section" id="contact" style="background:var(--cream-warm);">
+    <!-- Contact -->
+    <section class="section" id="contact">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">للتواصل</span>
                 <h2 class="section-title">تواصل معنا</h2>
                 <p class="section-subtitle">يسعدنا تواصلكم عبر القنوات التالية</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info-card">
-                    <h3>📞 قنوات التواصل</h3>
-                    <a href="https://www.facebook.com/share/1Aq5Goc11D/" target="_blank" rel="noopener" class="contact-link">
-                        <span class="c-icon">📘</span> صفحة الفيسبوك
-                    </a>
-                    <a href="https://t.me/+34z_CpanRMI0ZjBk" target="_blank" rel="noopener" class="contact-link">
-                        <span class="c-icon">📲</span> أكاديمية نبراس الأمة عبر التليجرام
-                    </a>
-                    <a href="https://t.me/+201122103199" target="_blank" rel="noopener" class="contact-link">
-                        <span class="c-icon">💬</span> للتواصل المباشر عبر التليجرام
-                    </a>
-                    <a href="https://wa.me/qr/THGG7M4N5YVDN1" target="_blank" rel="noopener" class="contact-link">
-                        <span class="c-icon">💚</span> للتواصل عبر الواتساب
-                    </a>
-                    <a href="tel:+201010330627" class="contact-link">
-                        <span class="c-icon">📞</span> +201010330627
-                    </a>
-                </div>
-                <div class="academy-card">
-                    <p style="color:var(--gold);font-weight:700;letter-spacing:1px;">Nibras Al-Umma Academy</p>
-                    <div class="academy-name-ar">أَكَادِيمِيَّةُ نِبْرَاسِ الأُمَّةِ</div>
-                    <p style="color:var(--text-medium);margin-top:8px;">⚜ سجلي الآن! ⚜</p>
-                    <p style="font-size:0.9rem;color:var(--text-light);margin-top:12px;">
-                        📷 تابعونا على التليجرام<br>
-                        <span dir="ltr" style="font-weight:600;color:var(--gold-dark);">+201010330627</span><br>
-                        <span dir="ltr" style="font-weight:600;color:var(--gold-dark);">+201122103199</span>
-                    </p>
-                </div>
+            <div class="contact-links reveal">
+                <a href="https://www.facebook.com/share/1Aq5Goc11D/" target="_blank" class="contact-link">
+                    <span class="contact-link-icon">f</span> صفحة الفيسبوك
+                </a>
+                <a href="https://t.me/+34z_CpanRMI0ZjBk" target="_blank" class="contact-link">
+                    <span class="contact-link-icon">✈</span> أكاديمية نبراس الأمة عبر التليجرام
+                </a>
+                <a href="https://t.me/+201122103199" target="_blank" class="contact-link">
+                    <span class="contact-link-icon">✉</span> تواصل مباشر تليجرام
+                </a>
+                <a href="https://wa.me/201122103199" target="_blank" class="contact-link">
+                    <span class="contact-link-icon" style="background:#25D366;">w</span> واتساب مباشر (01122103199)
+                </a>
+                <a href="tel:+201010330627" class="contact-link">
+                    <span class="contact-link-icon">☎</span> هاتف: 01010330627
+                </a>
+            </div>
+            <!-- Academy Card -->
+            <div class="reveal" style="margin-top:40px; text-align:center; background: linear-gradient(165deg, #fff, #fdf8ef); border-radius: var(--radius-xl); padding: 40px 30px; border:2px solid var(--gold); box-shadow: var(--shadow-gold);">
+                <p style="font-weight:700; color:var(--gold); letter-spacing:1px;">Nibras Al-Umma Academy</p>
+                <h3 style="font-family:'El Messiri',serif; font-size:2rem; color:var(--green-dark);">أَكَادِيمِيَّةُ نِبْرَاسِ الأُمَّةِ</h3>
+                <p style="font-weight:600; margin-top:12px;">⚜ سجلي الآن! ⚜</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-inner">
-            <p style="font-family:'El Messiri',serif;font-size:1.3rem;" class="gold-text">أكاديمية نبراس الأمة</p>
-            <p>Nibras Al-Umma Academy</p>
-            <div class="footer-divider"></div>
-            <p>الأستاذة <span class="gold-text">هدى محمد</span> — متخصصة في القراءات وعلوم القرآن الكريم</p>
-            <p style="font-size:0.8rem;opacity:0.6;">جميع الحقوق محفوظة © 2026</p>
-        </div>
+        <p style="font-size:1.3rem;" class="gold-text">أكاديمية نبراس الأمة</p>
+        <p>Nibras Al-Umma Academy</p>
+        <div style="width:60px; height:2px; background:var(--gold); margin:16px auto;"></div>
+        <p>الأستاذة <span class="gold-text">هدى محمد</span> — متخصصة في القراءات وعلوم القرآن الكريم</p>
+        <p style="font-size:0.8rem; opacity:0.6;">جميع الحقوق محفوظة © 2026</p>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122103199" target="_blank" class="whatsapp-float" title="تواصل عبر الواتساب">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
 
     <script>
         (function() {
-            // === PARTICLES ===
-            const particlesContainer = document.getElementById('particlesContainer');
-            const particleSymbols = ['✦', '⚜', '◆', '◈', '❖', '·', '•', '⁕'];
-            for (let i = 0; i < 35; i++) {
-                const particle = document.createElement('span');
-                particle.classList.add('particle');
-                particle.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.fontSize = (Math.random() * 16 + 8) + 'px';
-                particle.style.color = Math.random() < 0.5 ?
-                    'rgba(192,128,28,' + (Math.random() * 0.5 + 0.2) + ')' :
-                    'rgba(53,81,39,' + (Math.random() * 0.4 + 0.15) + ')';
-                particle.style.animationDuration = (Math.random() * 20 + 18) + 's';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particlesContainer.appendChild(particle);
-            }
+            // Loader
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => loader.classList.add('hidden'), 600);
+            });
+            setTimeout(() => { if (!loader.classList.contains('hidden')) loader.classList.add('hidden'); }, 4000);
 
-            // === NAVBAR SCROLL EFFECT ===
+            // Navbar scroll effect
             const navbar = document.getElementById('navbar');
             const navLinks = document.querySelectorAll('.nav-links a[data-section]');
             const sections = [];
             navLinks.forEach(link => {
-                const id = link.getAttribute('data-section');
-                const sec = document.getElementById(id);
-                if (sec) sections.push({ id, el: sec, link });
+                const sec = document.getElementById(link.getAttribute('data-section'));
+                if (sec) sections.push({ link, el: sec });
             });
 
             function updateActiveLink() {
-                const scrollY = window.scrollY + 120;
-                let currentId = null;
-                sections.forEach(s => {
-                    if (s.el.offsetTop <= scrollY && (s.el.offsetTop + s.el.offsetHeight) > scrollY) {
-                        currentId = s.id;
+                const scrollPos = window.scrollY + 120;
+                sections.forEach(({ link, el }) => {
+                    const top = el.offsetTop;
+                    const bottom = top + el.offsetHeight;
+                    if (scrollPos >= top && scrollPos < bottom) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
                     }
                 });
-                navLinks.forEach(l => l.classList.remove('active'));
-                if (currentId) {
-                    const activeLink = document.querySelector(`.nav-links a[data-section="${currentId}"]`);
-                    if (activeLink) activeLink.classList.add('active');
-                }
             }
-
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 40) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+                navbar.classList.toggle('scrolled', window.scrollY > 30);
                 updateActiveLink();
+                handleReveal();
             });
 
-            // === MOBILE MENU ===
+            // Mobile menu
             const mobileToggle = document.getElementById('mobileMenuToggle');
-            const navLinksContainer = document.getElementById('navLinks');
+            const navMenu = document.getElementById('navMenu');
             mobileToggle.addEventListener('click', () => {
-                navLinksContainer.classList.toggle('show');
-                mobileToggle.textContent = navLinksContainer.classList.contains('show') ? '✕' : '☰';
+                navMenu.classList.toggle('show');
+                mobileToggle.textContent = navMenu.classList.contains('show') ? '✕' : '☰';
             });
-            navLinksContainer.querySelectorAll('a').forEach(link => {
+            navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinksContainer.classList.remove('show');
+                    navMenu.classList.remove('show');
                     mobileToggle.textContent = '☰';
                 });
             });
 
-            // === SMOOTH SCROLL FOR ALL ANCHOR LINKS ===
+            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const target = document.querySelector(targetId);
+                    const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        target.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
             });
 
-            // === INITIAL ACTIVE LINK ===
+            // Ripple effect on buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    this.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            });
+
+            // Reveal on scroll
+            const revealElements = document.querySelectorAll('.reveal');
+            function handleReveal() {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const top = el.getBoundingClientRect().top;
+                    if (top < windowHeight - 60) el.classList.add('revealed');
+                });
+            }
+            handleReveal();
             updateActiveLink();
+
+            console.log('%c✨ أكاديمية نبراس الأمة %c| تصميم أكاديمي تفاعلي',
+                'color:#c0801c; font-size:1.3rem; font-weight:bold;', '');
         })();
     </script>
 </body>
