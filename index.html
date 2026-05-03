@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية نبراس الأمة | الأستاذة هدى محمد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c0801c;
+            --gold-light: #d4a745;
+            --gold-dark: #8b5a15;
+            --gold-pale: #f5e6cc;
+            --gold-glow: rgba(192, 128, 28, 0.35);
+            --green-dark: #355127;
+            --green-deeper: #1e3016;
+            --green-mid: #4a6e3a;
+            --green-light: #e8efe4;
+            --cream: #fdfaf4;
+            --cream-warm: #f9f3e7;
+            --ivory: #fffff8;
+            --champagne: #f7eedb;
+            --dark: #1a1a14;
+            --text-dark: #2a2218;
+            --text-medium: #4a3f2f;
+            --text-light: #6b5f4f;
+            --white: #ffffff;
+            --border-gold-subtle: rgba(192, 128, 28, 0.25);
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --shadow-gold: 0 10px 40px rgba(192, 128, 28, 0.2);
+            --shadow-green: 0 10px 40px rgba(53, 81, 39, 0.25);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            --transition-elegant: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Noto Naskh Arabic', 'Scheherazade New', serif;
+            background: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            direction: rtl;
+        }
+
+        /* ============ ANIMATED BACKGROUND PARTICLES ============ */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle linear infinite;
+            opacity: 0.35;
+        }
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(80px) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream-warm);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--gold-light), var(--gold));
+        }
+
+        /* ============ TOP ORNAMENTAL LINE ============ */
+        .top-ornament {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+            z-index: 9999;
+            animation: shimmerLine 3s ease-in-out infinite;
+        }
+        @keyframes shimmerLine {
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ============ NAVIGATION ============ */
+        .nav-glass {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 250, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-elegant);
+            padding: 0 16px;
+        }
+        .nav-glass.scrolled {
+            box-shadow: var(--shadow-md);
+            border-bottom: 2px solid var(--gold);
+        }
+        .nav-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            gap: 16px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-logo-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            box-shadow: var(--shadow-gold);
+            flex-shrink: 0;
+        }
+        .nav-brand-text {
+            font-family: 'El Messiri', 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--green-dark);
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 14px;
+            border-radius: 25px;
+            transition: all var(--transition-smooth);
+            white-space: nowrap;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold-dark);
+            background: var(--gold-pale);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 20px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: transform var(--transition-smooth);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        .nav-cta-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff !important;
+            padding: 9px 20px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            box-shadow: var(--shadow-gold);
+            transition: all var(--transition-smooth) !important;
+            letter-spacing: 0.3px;
+        }
+        .nav-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(192, 128, 28, 0.35);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
+            color: #fff !important;
+        }
+        .nav-cta-btn::after {
+            display: none !important;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            color: var(--gold-dark);
+            padding: 6px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .mobile-menu-toggle:hover {
+            background: var(--gold-pale);
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(175deg, #fefefe 0%, #fdf8ef 30%, #f9f0dc 60%, #fefdf9 100%);
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 L120 60 L170 70 L130 105 L145 155 L100 130 L55 155 L70 105 L30 70 L80 60 Z' fill='%23c0801c'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%23355127' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-size: 160px 160px;
+        }
+        .hero-glow-top {
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            z-index: 0;
+            border-radius: 50%;
+            animation: glowPulse 6s ease-in-out infinite;
+        }
+        .hero-glow-bottom {
+            position: absolute;
+            bottom: -80px;
+            left: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(53, 81, 39, 0.18) 0%, transparent 70%);
+            z-index: 0;
+            border-radius: 50%;
+            animation: glowPulse 7s ease-in-out infinite reverse;
+        }
+        @keyframes glowPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.25);
+                opacity: 1;
+            }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(192, 128, 28, 0.1), rgba(192, 128, 28, 0.2));
+            border: 1.5px solid var(--border-gold-subtle);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            backdrop-filter: blur(4px);
+        }
+        .hero-title-ar {
+            font-family: 'El Messiri', 'Amiri', 'Scheherazade New', serif;
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            color: var(--green-dark);
+            line-height: 1.35;
+            margin-bottom: 8px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+            text-shadow: 0 2px 8px rgba(53, 81, 39, 0.08);
+        }
+        .hero-title-ar .gold-highlight {
+            color: var(--gold);
+            position: relative;
+        }
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', 'Amiri', serif;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 500;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            font-style: italic;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            letter-spacing: 0.3px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            line-height: 1.9;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition-smooth);
+            letter-spacing: 0.3px;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            box-shadow: var(--shadow-gold);
+            border: 1px solid transparent;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(192, 128, 28, 0.4);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--green-dark);
+            border: 2px solid var(--green-dark);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--green-dark);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-green);
+        }
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounceDown 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+        .hero-scroll-indicator span {
+            display: block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .hero-scroll-indicator:hover span {
+            background: var(--gold);
+            color: #fff;
+        }
+        @keyframes bounceDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(12px);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ SECTION STYLES ============ */
+        .section {
+            position: relative;
+            padding: 80px 24px;
+            z-index: 1;
+        }
+        .section-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            background: var(--gold-pale);
+            padding: 5px 16px;
+            border-radius: 20px;
+        }
+        .section-title {
+            font-family: 'El Messiri', 'Amiri', serif;
+            font-size: clamp(2rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--green-dark);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+        .section-subtitle {
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============ ABOUT CARD ============ */
+        .about-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 44px 36px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-gold-subtle);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-elegant);
+        }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, var(--gold-pale) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .about-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .about-text h3 {
+            font-family: 'El Messiri', serif;
+            font-size: 1.5rem;
+            color: var(--green-dark);
+            margin-bottom: 14px;
+        }
+        .about-text p,
+        .about-text li {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 8px;
+        }
+        .about-list {
+            list-style: none;
+            padding: 0;
+        }
+        .about-list li {
+            position: relative;
+            padding-right: 26px;
+        }
+        .about-list li::before {
+            content: '✦';
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        /* ============ QUALIFICATIONS GRID ============ */
+        .quals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .qual-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            border: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .qual-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--gold);
+        }
+        .qual-card::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(192, 128, 28, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.5s;
+        }
+        .qual-card:hover::after {
+            width: 120px;
+            height: 120px;
+            top: -50px;
+            left: -50px;
+        }
+        .qual-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-pale), #fdf0d5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gold-dark);
+            z-index: 1;
+            border: 1.5px solid var(--border-gold-subtle);
+        }
+        .qual-content {
+            z-index: 1;
+        }
+        .qual-content h4 {
+            font-size: 0.95rem;
+            color: var(--green-dark);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .qual-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* ============ TEACHING FIELDS ============ */
+        .fields-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .field-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px 24px;
+            border: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-elegant);
+            position: relative;
+            overflow: hidden;
+        }
+        .field-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .field-card .field-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(192, 128, 28, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            z-index: 0;
+        }
+        .field-card h3 {
+            font-family: 'El Messiri', serif;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .field-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .field-card ul li {
+            padding: 6px 0;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            border-bottom: 1px dotted rgba(192, 128, 28, 0.15);
+            position: relative;
+            padding-right: 20px;
+        }
+        .field-card ul li::before {
+            content: '◆';
+            position: absolute;
+            right: 0;
+            top: 8px;
+            font-size: 0.5rem;
+            color: var(--gold);
+        }
+        .field-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* ============ FEATURES / مميزات ============ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--gold);
+        }
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-light), #e8efe4);
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--green-dark);
+            border: 2px solid rgba(53, 81, 39, 0.15);
+        }
+        .feature-card h4 {
+            color: var(--green-dark);
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+        }
+
+        /* ============ SERVICES ============ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .service-card {
+            background: linear-gradient(160deg, #fff, #fdfaf4);
+            border-radius: var(--radius-md);
+            padding: 22px 18px;
+            text-align: center;
+            border: 1.5px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+            cursor: default;
+        }
+        .service-card:hover {
+            background: linear-gradient(160deg, #fff, var(--gold-pale));
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-gold);
+        }
+        .service-card .svc-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .service-card h4 {
+            color: var(--green-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* ============ TARGET AUDIENCE ============ */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .audience-tag {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 14px 20px;
+            text-align: center;
+            border: 1.5px solid var(--border-gold-subtle);
+            font-weight: 600;
+            color: var(--green-dark);
+            transition: all var(--transition-smooth);
+            cursor: default;
+            font-size: 0.95rem;
+        }
+        .audience-tag:hover {
+            background: var(--green-dark);
+            color: #fff;
+            border-color: var(--green-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-green);
+        }
+
+        /* ============ TEACHING STYLE ============ */
+        .style-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .style-list li {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            border: 1px solid var(--border-gold-subtle);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all var(--transition-smooth);
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        .style-list li:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+        .style-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        /* ============ COURSES ============ */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+        .course-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 26px 20px;
+            border: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--gold);
+        }
+        .course-card .course-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .course-card h4 {
+            color: var(--green-dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-top: 10px;
+        }
+        .course-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        /* ============ CERTIFICATIONS ============ */
+        .cert-highlight {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-deeper));
+            color: #fff;
+            border-radius: var(--radius-xl);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-green);
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-highlight::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(192, 128, 28, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cert-highlight h3 {
+            font-family: 'El Messiri', serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .cert-highlight p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        .cert-highlight .cert-icon-big {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============ VALUES ============ */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .value-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid var(--border-gold-subtle);
+            transition: all var(--transition-smooth);
+        }
+        .value-card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-3px);
+        }
+        .value-card .val-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .value-card h4 {
+            color: var(--green-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* ============ MESSAGE / رسالة ============ */
+        .message-box {
+            background: linear-gradient(160deg, #fffefa, #fdf6e8);
+            border-radius: var(--radius-xl);
+            padding: 44px 32px;
+            text-align: center;
+            border: 2px solid var(--gold);
+            box-shadow: var(--shadow-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .message-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 10rem;
+            color: rgba(192, 128, 28, 0.07);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            z-index: 0;
+        }
+        .message-box p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+            line-height: 2;
+            font-family: 'Amiri', 'Scheherazade New', serif;
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .contact-info-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 36px 28px;
+            border: 1px solid var(--border-gold-subtle);
+            box-shadow: var(--shadow-md);
+        }
+        .contact-info-card h3 {
+            font-family: 'El Messiri', serif;
+            color: var(--green-dark);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: var(--cream-warm);
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+        .contact-link:hover {
+            border-color: var(--gold);
+            background: var(--gold-pale);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-link .c-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .academy-card {
+            background: linear-gradient(160deg, #fff, #fdf8ef);
+            border-radius: var(--radius-xl);
+            padding: 36px 28px;
+            border: 2px solid var(--gold);
+            box-shadow: var(--shadow-gold);
+            text-align: center;
+        }
+        .academy-card h3 {
+            font-family: 'El Messiri', serif;
+            color: var(--gold-dark);
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+        .academy-card .academy-name-ar {
+            font-family: 'El Messiri', 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            margin: 8px 0;
+        }
+        .academy-card .academy-name-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--green-deeper);
+            color: #ddd;
+            padding: 40px 24px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer p {
+            margin: 6px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .footer .gold-text {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 16px auto;
+            border-radius: 2px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .fields-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: rgba(255, 255, 250, 0.97);
+                backdrop-filter: blur(20px);
+                width: 260px;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-lg);
+                padding: 16px;
+                gap: 4px;
+                border: 1px solid var(--border-gold-subtle);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .hero {
+                padding: 100px 16px 60px;
+            }
+            .section {
+                padding: 50px 16px;
+            }
+            .quals-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid,
+            .services-grid,
+            .audience-grid,
+            .values-grid,
+            .courses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-title-ar {
+                font-size: 2rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .features-grid,
+            .services-grid,
+            .audience-grid,
+            .values-grid,
+            .courses-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .style-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Ornament -->
+    <div class="top-ornament"></div>
+
+    <!-- Particles -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand" aria-label="الرئيسية">
+                <div class="nav-logo-icon">✦</div>
+                <span class="nav-brand-text">نبراس الأمة</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-section="about">نبذة</a></li>
+                <li><a href="#qualifications" data-section="qualifications">المؤهلات</a></li>
+                <li><a href="#fields" data-section="fields">مجالات التدريس</a></li>
+                <li><a href="#services" data-section="services">الخدمات</a></li>
+                <li><a href="#courses" data-section="courses">الدورات</a></li>
+                <li><a href="#contact" class="nav-cta-btn">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-glow-top"></div>
+        <div class="hero-glow-bottom"></div>
+        <div class="hero-content">
+            <div class="hero-badge">⚜ أكاديمية نبراس الأمة ⚜</div>
+            <h1 class="hero-title-ar">
+                الأستاذة <span class="gold-highlight">هدى محمد</span>
+            </h1>
+            <p class="hero-subtitle">متخصصة في القراءات وعلوم القرآن الكريم</p>
+            <p class="hero-desc">
+                إعداد معلمات القرآن الكريم وتأهيلهن باحترافية<br>
+                رحلة تعليمية تجمع بين الإتقان والأثر المبارك
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">📩 تواصل معنا الآن</a>
+                <a href="#about" class="btn btn-outline">🔍 تعرف عليّ أكثر</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            <span>⌄</span>
+        </div>
+    </section>
+
+    <!-- نبذة تعريفية -->
+    <section class="section" id="about" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">نبذة تعريفية</span>
+                <h2 class="section-title">عن الأستاذة هدى محمد</h2>
+            </div>
+            <div class="about-card">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>🎓 المسيرة العلمية</h3>
+                        <ul class="about-list">
+                            <li>خريجة كلية القراءات وعلوم القرآن.</li>
+                            <li>متخصصة في علوم القرآن الكريم والقراءات.</li>
+                            <li>حاصلة على إجازات علمية معتمدة بروايتي حفص وشعبة عن عاصم.</li>
+                            <li>صاحبة خبرة في تأسيس المعلمات وإعدادهن وفق منهجية متقنة.</li>
+                        </ul>
+                    </div>
+                    <div class="about-text">
+                        <h3>🌟 الرسالة التعليمية</h3>
+                        <p style="font-family:'Amiri',serif;font-size:1.1rem;color:var(--text-dark);">
+                            إعداد جيل من المعلمات المتقنات، ونشر القراءة الصحيحة لكتاب الله تعالى، وفق منهج أصيل يجمع بين الإتقان، والتدرج، وحسن الأداء.
+                        </p>
+                        <p style="margin-top:12px;color:var(--gold-dark);font-weight:600;">
+                            ✦ حاصلة على شهادات دولية في تدريب المعلمات (TOT)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المؤهلات والإجازات -->
+    <section class="section" id="qualifications" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">المؤهلات والإجازات</span>
+                <h2 class="section-title">إجازات علمية معتمدة</h2>
+                <p class="section-subtitle">سلسلة من الإجازات المتصلة بالإسناد في القرآن الكريم وعلومه</p>
+            </div>
+            <div class="quals-grid">
+                <div class="qual-card"><div class="qual-icon">📜</div><div class="qual-content"><h4>إجازة في القرآن الكريم</h4><p>برواية حفص عن عاصم</p></div></div>
+                <div class="qual-card"><div class="qual-icon">📜</div><div class="qual-content"><h4>إجازة في القرآن الكريم</h4><p>برواية شعبة عن عاصم</p></div></div>
+                <div class="qual-card"><div class="qual-icon">📖</div><div class="qual-content"><h4>إجازة في نور البيان</h4><p>منهج تأسيسي متكامل</p></div></div>
+                <div class="qual-card"><div class="qual-icon">🎙</div><div class="qual-content"><h4>إجازة في التجويد</h4><p>أحكام التجويد نظريًا وعمليًا</p></div></div>
+                <div class="qual-card"><div class="qual-icon">🌟</div><div class="qual-content"><h4>إجازة في القاعدة النورانية</h4><p>تأسيس النطق العربي السليم</p></div></div>
+                <div class="qual-card"><div class="qual-icon">📚</div><div class="qual-content"><h4>إجازة في متن الجزرية</h4><p>المنظومة التجويدية الشهيرة</p></div></div>
+                <div class="qual-card"><div class="qual-icon">👶</div><div class="qual-content"><h4>إجازة في متن تحفة الأطفال</h4><p>لتعليم الصغار أحكام التجويد</p></div></div>
+                <div class="qual-card"><div class="qual-icon">📘</div><div class="qual-content"><h4>إجازة في كتاب منار الهدى</h4><p>في فن التجويد</p></div></div>
+                <div class="qual-card"><div class="qual-icon">🔖</div><div class="qual-content"><h4>إجازة في منظومة قصر المنفصل</h4><p>من متون القراءات</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مجالات التدريس -->
+    <section class="section" id="fields" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">مجالات التدريس</span>
+                <h2 class="section-title">ما أقدمه من علم</h2>
+            </div>
+            <div class="fields-wrapper">
+                <div class="field-card">
+                    <div class="field-number">01</div>
+                    <h3>📖 تعليم القرآن الكريم</h3>
+                    <ul>
+                        <li>تصحيح التلاوة لجميع المستويات</li>
+                        <li>تحسين الأداء وإتقان الترتيل</li>
+                        <li>مراجعة الحفظ وضبط الأخطاء</li>
+                        <li>شرح أحكام التجويد بأسلوب ميسر</li>
+                        <li>برامج تمهيدية للراغبات في الإجازة</li>
+                    </ul>
+                </div>
+                <div class="field-card">
+                    <div class="field-number">02</div>
+                    <h3>👩‍🏫 إعداد المعلمات</h3>
+                    <ul>
+                        <li>إعداد معلمات القرآن وفق منهج علمي متقن</li>
+                        <li>تأهيل معلمات نور البيان</li>
+                        <li>إعداد معلمات التأسيس للحضانات والكتاتيب</li>
+                        <li>تدريب المعلمات على مهارات الشرح والتطبيق</li>
+                        <li>بناء خطط تعليمية للطالبات والمعلمات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ما يميزني -->
+    <section class="section" id="features" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">ما يميزني</span>
+                <h2 class="section-title">لماذا تختارين التعلم معي؟</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">🌸</div><h4>أسلوب هادئ وواضح</h4><p>شرح مبسط يناسب الجميع</p></div>
+                <div class="feature-card"><div class="feature-icon">📋</div><h4>متابعة مستمرة</h4><p>لتحقيق أفضل النتائج</p></div>
+                <div class="feature-card"><div class="feature-icon">🎯</div><h4>خبرة واسعة</h4><p>مع المبتدئات والمتقدمات</p></div>
+                <div class="feature-card"><div class="feature-icon">💡</div><h4>تبسيط المعلومات</h4><p>الشرعية والتجويدية</p></div>
+                <div class="feature-card"><div class="feature-icon">🤝</div><h4>الجمع بين العلمي والتربوي</h4><p>منهج متكامل</p></div>
+                <div class="feature-card"><div class="feature-icon">🕰</div><h4>برامج مرنة</h4><p>تناسب احتياجات الدارسات</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section class="section" id="services" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">الخدمات</span>
+                <h2 class="section-title">الخدمات التي أقدمها</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card"><div class="svc-icon">🖥</div><h4>حلقات فردية وجماعية عن بُعد</h4></div>
+                <div class="service-card"><div class="svc-icon">🎙</div><h4>دورات التجويد والتحسين</h4></div>
+                <div class="service-card"><div class="svc-icon">📖</div><h4>برامج نور البيان والتأسيس</h4></div>
+                <div class="service-card"><div class="svc-icon">👩‍🏫</div><h4>دورات إعداد المعلمات</h4></div>
+                <div class="service-card"><div class="svc-icon">📝</div><h4>مراجعة وإتقان الحفظ</h4></div>
+                <div class="service-card"><div class="svc-icon">🎓</div><h4>برامج تأهيلية قبل الإجازة</h4></div>
+                <div class="service-card"><div class="svc-icon">💬</div><h4>استشارات تعليمية للحلقات النسائية</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفئات المستهدفة -->
+    <section class="section" id="audience" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">الفئات المستهدفة</span>
+                <h2 class="section-title">لمن هذه البرامج؟</h2>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-tag">👩‍👩‍👧‍👧 النساء من جميع الأعمار</div>
+                <div class="audience-tag">🌱 المبتدئات في قراءة القرآن</div>
+                <div class="audience-tag">⭐ المتقدمات الراغبات في الإتقان</div>
+                <div class="audience-tag">💼 الراغبات في العمل بتعليم القرآن</div>
+                <div class="audience-tag">🏫 الحضانات والكتاتيب التعليمية</div>
+                <div class="audience-tag">📈 المعلمات الباحثات عن التطوير المهني</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- أسلوبي في التدريس -->
+    <section class="section" id="style" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">أسلوبي في التدريس</span>
+                <h2 class="section-title">كيف أُعلّم؟</h2>
+            </div>
+            <ul class="style-list">
+                <li><span class="style-dot"></span> التدرج من الأساسيات إلى الإتقان</li>
+                <li><span class="style-dot"></span> التركيز على التطبيق العملي</li>
+                <li><span class="style-dot"></span> تصحيح مباشر للأداء والتلاوة</li>
+                <li><span class="style-dot"></span> بيئة تعليمية محفزة ومنظمة</li>
+                <li><span class="style-dot"></span> متابعة فردية لكل دارسة</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- الدورات التدريبية -->
+    <section class="section" id="courses" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">الدورات التدريبية</span>
+                <h2 class="section-title">برامج تدريبية متخصصة</h2>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card"><span class="course-badge">الأكثر طلبًا</span><h4>📚 دورة إعداد معلمات القرآن الكريم</h4><p>منهج علمي متكامل</p></div>
+                <div class="course-card"><h4>🌟 دورة نور البيان للمعلمات</h4><p>تأسيس احترافي</p></div>
+                <div class="course-card"><h4>🔤 دورة القاعدة النورانية</h4><p>نطق عربي سليم</p></div>
+                <div class="course-card"><h4>🎙 دورة التجويد العملي</h4><p>تطبيق مباشر للأحكام</p></div>
+                <div class="course-card"><h4>✨ دورة تحسين التلاوة</h4><p>إتقان الترتيل</p></div>
+                <div class="course-card"><h4>🎓 دورة التأهيل لما قبل الإجازة</h4><p>برنامج تمهيدي متقن</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الشهادات المهنية -->
+    <section class="section" id="certifications" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="cert-highlight">
+                <div class="cert-icon-big">🏅</div>
+                <h3>شهادات مهنية دولية</h3>
+                <p>حاصلة على شهادات دولية في تدريب المعلمات (TOT)</p>
+                <p style="font-size:0.9rem;opacity:0.75;">Training of Trainers – معتمدة دوليًا</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قيم أؤمن بها -->
+    <section class="section" id="values" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">قيم أؤمن بها</span>
+                <h2 class="section-title">مبادئي في التعليم</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card"><div class="val-icon">💎</div><h4>الإخلاص في خدمة كتاب الله</h4></div>
+                <div class="value-card"><div class="val-icon">⚡</div><h4>الإتقان أساس النجاح</h4></div>
+                <div class="value-card"><div class="val-icon">🌿</div><h4>الصبر في التعليم والتربية</h4></div>
+                <div class="value-card"><div class="val-icon">🔄</div><h4>التطوير المستمر للمعلمة</h4></div>
+                <div class="value-card"><div class="val-icon">🌍</div><h4>نشر الخير بالعلم النافع</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- رسالتي -->
+    <section class="section" id="message" style="background:#fefefe;">
+        <div class="section-inner">
+            <div class="message-box">
+                <p>
+                    إعداد جيل من المعلمات المتقنات، ونشر القراءة الصحيحة لكتاب الله تعالى،<br>
+                    وفق منهج أصيل يجمع بين <strong>الإتقان</strong>، و<strong>التدرج</strong>، و<strong>حسن الأداء</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- التواصل -->
+    <section class="section" id="contact" style="background:var(--cream-warm);">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">للتواصل</span>
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">يسعدنا تواصلكم عبر القنوات التالية</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>📞 قنوات التواصل</h3>
+                    <a href="https://www.facebook.com/share/1Aq5Goc11D/" target="_blank" rel="noopener" class="contact-link">
+                        <span class="c-icon">📘</span> صفحة الفيسبوك
+                    </a>
+                    <a href="https://t.me/+34z_CpanRMI0ZjBk" target="_blank" rel="noopener" class="contact-link">
+                        <span class="c-icon">📲</span> أكاديمية نبراس الأمة عبر التليجرام
+                    </a>
+                    <a href="https://t.me/+201122103199" target="_blank" rel="noopener" class="contact-link">
+                        <span class="c-icon">💬</span> للتواصل المباشر عبر التليجرام
+                    </a>
+                    <a href="https://wa.me/qr/THGG7M4N5YVDN1" target="_blank" rel="noopener" class="contact-link">
+                        <span class="c-icon">💚</span> للتواصل عبر الواتساب
+                    </a>
+                    <a href="tel:+201010330627" class="contact-link">
+                        <span class="c-icon">📞</span> +201010330627
+                    </a>
+                </div>
+                <div class="academy-card">
+                    <p style="color:var(--gold);font-weight:700;letter-spacing:1px;">Nibras Al-Umma Academy</p>
+                    <div class="academy-name-ar">أَكَادِيمِيَّةُ نِبْرَاسِ الأُمَّةِ</div>
+                    <p style="color:var(--text-medium);margin-top:8px;">⚜ سجلي الآن! ⚜</p>
+                    <p style="font-size:0.9rem;color:var(--text-light);margin-top:12px;">
+                        📷 تابعونا على التليجرام<br>
+                        <span dir="ltr" style="font-weight:600;color:var(--gold-dark);">+201010330627</span><br>
+                        <span dir="ltr" style="font-weight:600;color:var(--gold-dark);">+201122103199</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p style="font-family:'El Messiri',serif;font-size:1.3rem;" class="gold-text">أكاديمية نبراس الأمة</p>
+            <p>Nibras Al-Umma Academy</p>
+            <div class="footer-divider"></div>
+            <p>الأستاذة <span class="gold-text">هدى محمد</span> — متخصصة في القراءات وعلوم القرآن الكريم</p>
+            <p style="font-size:0.8rem;opacity:0.6;">جميع الحقوق محفوظة © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // === PARTICLES ===
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleSymbols = ['✦', '⚜', '◆', '◈', '❖', '·', '•', '⁕'];
+            for (let i = 0; i < 35; i++) {
+                const particle = document.createElement('span');
+                particle.classList.add('particle');
+                particle.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.fontSize = (Math.random() * 16 + 8) + 'px';
+                particle.style.color = Math.random() < 0.5 ?
+                    'rgba(192,128,28,' + (Math.random() * 0.5 + 0.2) + ')' :
+                    'rgba(53,81,39,' + (Math.random() * 0.4 + 0.15) + ')';
+                particle.style.animationDuration = (Math.random() * 20 + 18) + 's';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particlesContainer.appendChild(particle);
+            }
+
+            // === NAVBAR SCROLL EFFECT ===
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+            const sections = [];
+            navLinks.forEach(link => {
+                const id = link.getAttribute('data-section');
+                const sec = document.getElementById(id);
+                if (sec) sections.push({ id, el: sec, link });
+            });
+
+            function updateActiveLink() {
+                const scrollY = window.scrollY + 120;
+                let currentId = null;
+                sections.forEach(s => {
+                    if (s.el.offsetTop <= scrollY && (s.el.offsetTop + s.el.offsetHeight) > scrollY) {
+                        currentId = s.id;
+                    }
+                });
+                navLinks.forEach(l => l.classList.remove('active'));
+                if (currentId) {
+                    const activeLink = document.querySelector(`.nav-links a[data-section="${currentId}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                updateActiveLink();
+            });
+
+            // === MOBILE MENU ===
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const navLinksContainer = document.getElementById('navLinks');
+            mobileToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('show');
+                mobileToggle.textContent = navLinksContainer.classList.contains('show') ? '✕' : '☰';
+            });
+            navLinksContainer.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinksContainer.classList.remove('show');
+                    mobileToggle.textContent = '☰';
+                });
+            });
+
+            // === SMOOTH SCROLL FOR ALL ANCHOR LINKS ===
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // === INITIAL ACTIVE LINK ===
+            updateActiveLink();
+        })();
+    </script>
+</body>
+</html>
