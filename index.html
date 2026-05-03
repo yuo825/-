@@ -46,67 +46,108 @@
             --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--cream-warm);
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--cream-warm);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
-            border-radius: 8px;
-        }
+/* ---------- Dark Mode Variables (محسّنة ومتناغمة) ---------- */
+body.dark-mode {
+    --green-dark: #0f1a0b;        /* أخضر عميق جداً للفوتر والخلفيات الداكنة */
+    --green-main: #2d4420;       /* أخضر متوسط للشريط والأزرار */
+    --green-soft: #3a5c2a;       /* أخضر أنعم للتأثيرات */
+    --green-light: #1e2e15;      /* خلفية الأقسام المائلة للأخضر */
+    --green-pale: #17220f;       /* بطاقات وأقسام bg-soft-green */
+    --gold-dark: #b87a18;        /* ذهبي داكن للنصوص */
+    --gold: #cd972a;             /* ذهبي فاتح للعناوين والأيقونات */
+    --gold-bright: #dba940;      /* ذهبي لامع */
+    --gold-light: #e6c56a;       /* ذهبي فاتح */
+    --gold-lighter: #f0d078;     /* ذهبي مضيء */
+    --gold-pale: #2b2512;        /* خلفية ذهبية باهتة */
+    --gold-glow: rgba(205, 151, 42, 0.5);  /* توهّج ذهبي */
+    --cream: #181a10;            /* خلفية كريمية داكنة */
+    --cream-warm: #1c1e14;       /* خلفية أدفأ */
+    --ivory: #12160d;            /* خلفية الصفحة الرئيسية */
+    --white: #1e2418;            /* البطاقات والخلفيات البيضاء سابقاً */
+    --text-dark: #f0e8d8;        /* نص فاتح */
+    --text-medium: #d4c8a8;      /* نص متوسط */
+    --text-light: #b8ad8a;       /* نص فاتح أقل */
+    --border-gold: rgba(205, 151, 42, 0.5);  /* حدود ذهبية أوضح */
+    --border-gold-light: rgba(205, 151, 42, 0.25);
+    --glass-bg: rgba(18, 22, 13, 0.7);       /* زجاجي داكن */
+    --shadow-sm: 0 3px 16px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+    --shadow-gold: 0 10px 40px rgba(205, 151, 42, 0.45);
+    --shadow-green: 0 10px 40px rgba(15, 26, 11, 0.6);
+}
 
-        body {
-            font-family: 'Tajawal', 'Noto Naskh Arabic', 'Scheherazade New', sans-serif;
-            background: var(--ivory);
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-            direction: rtl;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ---------- Loading Screen ---------- */
-        .page-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: var(--ivory);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-        .page-loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .loader-ring {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--border-gold-light);
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spinLoader 0.9s linear infinite;
-        }
-        @keyframes spinLoader {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
+/* تحسينات إضافية للوضع الداكن */
+body.dark-mode .hero {
+    background: linear-gradient(165deg, #0e1509 0%, #131d0b 40%, #0a0e06 100%);
+}
+body.dark-mode .hero-bg-cover {
+    opacity: 0.20;
+}
+body.dark-mode .hero-badge {
+    background: rgba(205, 151, 42, 0.15);
+    border-color: var(--border-gold);
+    color: var(--gold-light);
+}
+body.dark-mode .card {
+    background: var(--white);
+    border-color: var(--border-gold-light);
+}
+body.dark-mode .card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+}
+body.dark-mode .card-icon {
+    background: linear-gradient(135deg, #2c2818, #3d3620);
+    color: var(--gold-light);
+    border-color: var(--border-gold);
+}
+body.dark-mode .card:hover .card-icon {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #fff;
+}
+body.dark-mode .btn-outline {
+    color: var(--gold-light);
+    border-color: var(--gold);
+}
+body.dark-mode .btn-outline:hover {
+    background: var(--gold);
+    color: #0d1a0a;
+}
+body.dark-mode .about-img {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+}
+body.dark-mode .section-tag {
+    background: var(--gold-pale);
+    color: var(--gold-light);
+    border-color: var(--border-gold);
+}
+body.dark-mode .section-title::after {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+body.dark-mode .contact-link {
+    background: var(--white);
+    border-color: var(--border-gold-light);
+}
+body.dark-mode .contact-link:hover {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+}
+body.dark-mode .footer {
+    background: #0a1307;
+    color: #d5cfc5;
+}
+body.dark-mode .footer .gold-text {
+    color: var(--gold-lighter);
+}
+body.dark-mode .message-box {
+    background: linear-gradient(165deg, #1b2015, #202815);
+    border-color: var(--gold);
+}
+body.dark-mode .whatsapp-float {
+    background: #25D366; /* يظل أخضر للواتساب */
+}
         /* ---------- Top Ornament Line ---------- */
         .ornament-line {
             position: fixed;
@@ -209,6 +250,38 @@
             cursor: pointer;
         }
 
+        /* ---------- Dark Mode Toggle Button ---------- */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-gold);
+            border-radius: 30px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold);
+            font-size: 1.1rem;
+            transition: all var(--transition-smooth);
+            margin-right: 8px;
+        }
+        .theme-toggle:hover {
+            background: var(--gold-pale);
+            border-color: var(--gold);
+        }
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            transition: opacity 0.3s;
+            position: absolute;
+        }
+        body:not(.dark-mode) .theme-toggle .icon-moon {
+            opacity: 0;
+        }
+        body.dark-mode .theme-toggle .icon-sun {
+            opacity: 0;
+        }
+
         /* ---------- Hero Section ---------- */
         .hero {
             position: relative;
@@ -221,6 +294,10 @@
             background: linear-gradient(165deg, #fefefc 0%, #f8f0df 40%, #fefdfa 100%);
             overflow: hidden;
             isolation: isolate;
+            transition: background 0.4s ease;
+        }
+        body.dark-mode .hero {
+            background: linear-gradient(165deg, #1a1a10 0%, #121a0f 40%, #0f120b 100%);
         }
         .hero-bg-cover {
             position: absolute;
@@ -230,7 +307,9 @@
             opacity: 0.08;
             filter: blur(2px);
         }
-        /* Remove emoji, use geometric overlay */
+        body.dark-mode .hero-bg-cover {
+            opacity: 0.15;
+        }
         .hero-pattern {
             position: absolute;
             inset: 0;
@@ -365,6 +444,7 @@
         .section {
             padding: 80px 24px;
             position: relative;
+            transition: background 0.4s ease;
         }
         .section-inner {
             max-width: 1150px;
@@ -656,7 +736,14 @@
                 <img src="logo-placeholder.png" alt="شعار أكاديمية نبراس الأمة" class="logo-img-small" onerror="this.style.display='none'">
                 <span class="brand-name">نبراس الأمة</span>
             </a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <!-- Dark mode toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الداكن">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            </div>
             <ul class="nav-links" id="navMenu">
                 <li><a href="#about" data-section="about">نبذة</a></li>
                 <li><a href="#qualifications" data-section="qualifications">المؤهلات</a></li>
@@ -938,6 +1025,23 @@
                 setTimeout(() => loader.classList.add('hidden'), 600);
             });
             setTimeout(() => { if (!loader.classList.contains('hidden')) loader.classList.add('hidden'); }, 4000);
+
+            // Dark mode toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            // Check saved preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
 
             // Navbar scroll effect
             const navbar = document.getElementById('navbar');
